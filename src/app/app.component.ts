@@ -11,8 +11,10 @@ export class AppComponent {
 
   ngOnInit() {
     this.generateData();
-  }
 
+    // change the data periodically
+    //setInterval(() => this.generateData(), 3000);
+  }
 
   generateData() {
     this.chartData = [];
