@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { ApiService } from './api.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,11 +11,18 @@ export class AppComponent {
   title = 'app';
   private chartData: Array<any>;
 
-  ngOnInit() {
-    this.generateData();
+  constructor(private _ApiService: ApiService) { }
 
+  ngOnInit() {
+
+    // Local Data //////////////////////////////////////////////////////////////////////
+
+    //this.generateData();
     // change the data periodically
     //setInterval(() => this.generateData(), 3000);
+
+    // API Data ////////////////////////////////////////////////////////////////////////
+    this._ApiService.getData().subscribe(result => { this.chartData = result })
   }
 
   generateData() {
