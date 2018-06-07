@@ -9,7 +9,7 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   title = 'app';
-  private chartData: Array<any>;
+  private chartData: Object;
 
   constructor(private _ApiService: ApiService) { }
 
